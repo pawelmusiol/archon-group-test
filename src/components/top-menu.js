@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, } from "react";
 import { Link } from "."
 import Logo from "../images/logo-archon.png"
-import { useDeep } from "./helpers"
+
 
 const menuData = {
     left: [
@@ -52,7 +52,7 @@ const menuData = {
     ]
 }
 
-const mapLinks = (prefix, link) => {
+const mapLinks = (link) => {
     if (link.content) {
         return (
             <div className="link-w-children">
@@ -89,14 +89,13 @@ const changeClassOnScroll = (topRef) => {
 }
 
 const TopMenu = () => {
-    const prefix = useDeep()
     const topRef = useRef()
     useEffect(() => {
         document.addEventListener('scroll', () => changeClassOnScroll(topRef))
     }, [])
 
     const navLeft = menuData.left.map(link => <Link to={link.to}>{link.name}</Link>)
-    const navRight = menuData.right.map((link) => mapLinks(prefix, link))
+    const navRight = menuData.right.map((link) => mapLinks(link))
     return (
         <div>
             <header>
