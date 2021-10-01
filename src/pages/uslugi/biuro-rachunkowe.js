@@ -10,7 +10,7 @@ import {
 }
     from "../../components"
 import Image1 from '../../images/test2.jpg'
-import Image2 from '../../images/test3.PNG'
+import Image2 from '../../images/test3.png'
 import Image3 from '../../images/test1.jpg'
 
 const LinksData = [
