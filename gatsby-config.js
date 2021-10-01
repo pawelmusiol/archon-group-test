@@ -4,6 +4,7 @@ module.exports = {
     siteMetadata: {
         siteUrl: `https://www.yourdomain.tld`,
     },
+    pathPrefix: "/archon-group-test",
     plugins: [
         {
             resolve: 'gatsby-source-filesystem',
