@@ -1,12 +1,12 @@
 import React from "react"
 import { Link, Section } from "."
+import { useLocation } from "@reach/router"
 
-
-const checkForLocation = (prefix, to) => {
-    if (prefix && (prefix + to) === window.location.pathname) {
+const checkForLocation = ( to, location, prefix) => {
+    if (prefix && (prefix + to) === location.pathname) {
         return "active"
     }
-    else if (to === window.location.pathname) {
+    else if (to === location.pathname) {
         return "active"
     }
     return ""
@@ -20,14 +20,16 @@ const checkForLocationLocal = (current, name) => {
 }
 
 const Links = ({ links, prefix, onClick, current }) => {
+    let location = useLocation()
+    console.log(location)
     let children = []
     if (!onClick) {
         children = links.map((link, key) => {
             if (prefix) {
-                return <Link key={key} className={checkForLocation(link.to)} to={prefix + link.to}>{link.name}</Link>
+                return <Link key={key} className={checkForLocation(link.to, location)} to={prefix + link.to}>{link.name}</Link>
             }
             else {
-                return <Link key={key} className={checkForLocation(link.to)} to={link.to}>{link.name}</Link>
+                return <Link key={key} className={checkForLocation(link.to, location)} to={link.to}>{link.name}</Link>
             }
         })
     }
