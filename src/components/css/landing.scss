@@ -90,3 +90,13 @@ p, h1, h2 {
 .landing-service > .landing-content{
     justify-content: flex-end;
 }
+
+@media only screen and (max-width: 768px) {
+    .landing-text{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .landing-content{
+        margin-left: 0;
+    }
+}

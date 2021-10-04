@@ -2,12 +2,16 @@
 
 $primary-color: #ffc939;
 
+html{
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     font-family: "Roboto", sans-serif;
     overflow-x: hidden;
 }
-a{
+a {
     cursor: pointer;
 }
 nav {
@@ -20,7 +24,7 @@ nav {
     justify-content: space-between;
     margin: 0;
     padding: 0 2%;
-    transition: all .4s;
+    transition: all 0.4s;
 }
 nav > div {
     display: flex;
@@ -44,18 +48,18 @@ nav a:hover {
     background-size: 0 0.1em, 100% 0.1em;
 }
 
-.logo-div{
+.logo-div {
     width: fit-content;
     height: fit-content;
     //align-items: center;
     justify-content: center;
 }
 
-.logo-top{
+.logo-top {
     min-width: 20%;
     min-height: 20%;
     max-height: 20%;
-    max-width:20%;
+    max-width: 20%;
 }
 
 .link-w-children {
@@ -80,18 +84,17 @@ nav a:hover {
     top: 100%;
 }
 
-.scrolled{
+.scrolled {
     background: rgb(255, 255, 255) !important;
     box-shadow: 3px 15px 20px rgb(0 0 0 / 8%);
 }
 
-.scrolled *{
-    color:#111;
+.scrolled * {
+    color: #111;
 }
 
-
 .scrolled .children-links {
-    padding: .5vw;
+    padding: 0.5vw;
     background: rgb(255, 255, 255) !important;
 }
 
@@ -113,18 +116,18 @@ footer > div {
 }
 
 footer a {
-    margin-top:5px;
+    margin-top: 5px;
     text-decoration: none;
-    transition: .3s;
+    transition: 0.3s;
 }
 
-footer a:hover{
-    color: #FFCA39 !important;
+footer a:hover {
+    color: #ffca39 !important;
 }
 
-.footer-logo{
+.footer-logo {
     max-width: 100% !important;
-    max-height:100% !important;
+    max-height: 100% !important;
 }
 
 footer > div > div {
@@ -132,29 +135,27 @@ footer > div > div {
     flex-direction: column;
 }
 
-
 .footer-social img {
-    width:48px;
-    height:48px;
+    width: 48px;
+    height: 48px;
     margin: 5px;
 }
 
 footer h2 {
-    margin-top:0;
+    margin-top: 0;
 }
 
-.services-links{
+.services-links {
     align-items: unset !important;
-
 }
 
 .img-container {
     max-width: 60% !important;
-    max-height:80% !important;
+    max-height: 80% !important;
 }
 
-.logo-address{
-    max-width:33%;
+.logo-address {
+    max-width: 33%;
     align-items: center;
     //width: min-content;
 }
@@ -173,7 +174,6 @@ footer h2 {
     flex-direction: row;
 }
 
-
 .section-column {
     display: flex;
     flex-direction: column;
@@ -182,4 +182,77 @@ footer h2 {
 
 .section * {
     color: #111;
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .right {
+        display: none;
+    }
+
+    .right-open {
+        
+        padding-top: 10vh;
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+        background: rgb(255, 255, 255);
+        width: 100vw;
+        height: 100vh;
+        padding-left: 20px;
+    }
+
+    .right-open::before{
+        content: " ";
+        border-top: 1px solid #ccc;
+        position: absolute;
+        top: 8vh;
+        left: 0;
+        width: 100vw;
+        //z-index: 1001;
+    }
+    .right-open * {
+
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: black;
+    }
+    .menu-icon {
+        display: block;
+        width: 8vw;
+        position: fixed;
+        top: 1vw;
+        right: 1vw;
+        z-index: 1000;
+    }
+    .children-links {
+        position: static;
+        opacity: 1;
+        padding-left: 20px;
+        gap: 5px;
+    }
+    header {
+        background: rgb(255, 255, 255);
+    }
+    .left{
+        z-index: 1000;
+    }
+    .left *{
+        color: black;
+    }
+    footer .section{
+        flex-direction: column !important;
+        gap: 20px;
+    }
+    footer h2 {
+        margin-bottom: 0;
+    }
+    .logo-address{
+        max-width: 100%;
+    }
 }

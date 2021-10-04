@@ -77,7 +77,7 @@
 .main-text {
     padding: 100px;
 }
-.main h1{
+.main h1 {
     font-weight: 300;
 }
 
@@ -89,7 +89,6 @@
     right: 10%;
     width: 50%;
 }
-
 
 .service-section {
 }
@@ -167,7 +166,7 @@
     //box-shadow: 3px 15px 20px rgb(0 0 0 / 8%);
     //padding: 40px;
     //min-width: 150px;
-   //max-width: 100%;
+    //max-width: 100%;
     height: 100%;
 }
 
@@ -190,4 +189,51 @@
     text-align: center;
     border-color: #333;
     color: #333;
+}
+.project-text {
+    margin-left: 200px;
+}
+.project-box {
+    padding: 100px 0;
+    margin-right: -200px;
+}
+
+@media only screen and (max-width: 768px) {
+    .links {
+        flex-direction: column !important;
+        max-width: 90% !important;
+    }
+    .main {
+        flex-direction: column !important;
+    }
+    .main > div {
+        width: 100vw;
+    }
+    .main-text {
+        padding: 2%;
+    }
+    .service-row {
+        flex-direction: column !important;
+    }
+    .service-text {
+        width: 100%;
+        padding: 2%;
+    }
+    .service-images {
+        width: 100%;
+    }
+    .floating {
+        left: -40px;
+    }
+    .project {
+        flex-direction: column-reverse !important;
+    }
+    .project-text {
+        width: 96%;
+        margin-left: 0;
+    }
+    .project-box {
+        padding: 10px 0;
+        margin-right: 0;
+    }
 }

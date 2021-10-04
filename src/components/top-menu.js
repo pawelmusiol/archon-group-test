@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, } from "react";
 import { Link } from "."
 import Logo from "../images/logo-archon.png"
+import Menu from "../images/menu.svg"
 
 
 const menuData = {
@@ -87,11 +88,30 @@ const changeClassOnScroll = (topRef) => {
         }
     }
 }
+/**
+ * 
+ * @param {React.MutableRefObject<HTMLDivElement>} rightRef 
+ */
+const showMenu = (rightRef) => {
+    if (rightRef.current) {
+        if(rightRef.current.classList.contains("right-open")){
+            rightRef.current.classList.remove("right-open");
+        }
+        else{
+            rightRef.current.classList.add("right-open");
+        }
+    }
+}
 
 const TopMenu = () => {
     const topRef = useRef()
+    const rightRef = useRef()
     useEffect(() => {
         document.addEventListener('scroll', () => changeClassOnScroll(topRef))
+        //document.addEventListener('touchmove', () => changeClassOnScroll(topRef))
+        if (rightRef.current) {
+            rightRef.current.classList.remove("right-open");
+        }
     }, [])
 
     const navLeft = menuData.left.map(link => <Link to={link.to}>{link.name}</Link>)
@@ -103,10 +123,12 @@ const TopMenu = () => {
                     <div className="left">
                         {navLeft}
                     </div>
+                    <img src={Menu} className="menu-icon" onClick={() => showMenu(rightRef)} />
+
                     {/*<div className="logo-div">
                         <img src={Logo} className="logo-top"/>
     </div>*/}
-                    <div className="right">
+                    <div className="right right-open" ref={rightRef}>
                         {navRight}
                     </div>
                 </nav>
