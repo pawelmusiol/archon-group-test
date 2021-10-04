@@ -21,7 +21,7 @@ const ContactModal = ({ close }) => {
                         <Input textarea value={Message} setValue={setMessage} placeholder="Wiadomość" rows={6} />
                     </div>
                     <div className="modal-inputs send">
-                        <Input type="submit" value="Zaloguj się" onClick={() => { }} className="send-input" />
+                        <Input type="submit" value="Wyślij" onClick={() => { }} className="send-input" />
                     </div>
                 </div>
                 <Section className="contact-info">
