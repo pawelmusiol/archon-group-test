@@ -90,15 +90,18 @@ const changeClassOnScroll = (topRef) => {
 }
 /**
  * 
+ * @param {React.MutableRefObject<HTMLDivElement>} leftRef 
  * @param {React.MutableRefObject<HTMLDivElement>} rightRef 
  */
-const showMenu = (rightRef) => {
-    if (rightRef.current) {
+const showMenu = (leftRef,rightRef) => {
+    if (rightRef.current && leftRef.current) {
         if(rightRef.current.classList.contains("right-open")){
             rightRef.current.classList.remove("right-open");
+            leftRef.current.classList.remove("scrolled");
         }
         else{
             rightRef.current.classList.add("right-open");
+            leftRef.current.classList.add("scrolled");
         }
     }
 }
@@ -106,6 +109,7 @@ const showMenu = (rightRef) => {
 const TopMenu = () => {
     const topRef = useRef()
     const rightRef = useRef()
+    const leftRef = useRef()
     useEffect(() => {
         document.addEventListener('scroll', () => changeClassOnScroll(topRef))
         //document.addEventListener('touchmove', () => changeClassOnScroll(topRef))
@@ -120,10 +124,10 @@ const TopMenu = () => {
         <div>
             <header>
                 <nav ref={topRef}>
-                    <div className="left">
+                    <div className="left" ref={leftRef}>
                         {navLeft}
                     </div>
-                    <img src={Menu} className="menu-icon" onClick={() => showMenu(rightRef)} />
+                    <img src={Menu} className="menu-icon" onClick={() => showMenu(leftRef, rightRef)} />
 
                     {/*<div className="logo-div">
                         <img src={Logo} className="logo-top"/>

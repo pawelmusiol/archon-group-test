@@ -51,15 +51,15 @@
     margin-bottom: 10px !important;
 }
 
-.modal-inputs input, textarea {
+.modal-inputs input,
+textarea {
     background: transparent;
     border: 2px solid #000;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.1);
 }
-.modal-inputs  textarea{
+.modal-inputs textarea {
     resize: none;
-
 }
 
 .modal-inner > * {
@@ -108,33 +108,36 @@
     background-color: #ffca39;
 }
 
-.contact-modal, .commision-modal{
+.contact-modal,
+.commision-modal {
     width: 100%;
 }
 
-.commision-modal h1{
+.commision-modal h1 {
     color: #eee;
 }
 
-.contact-modal{
+.contact-modal {
     padding: 0 !important;
+    max-width: 600px;
 }
 
-.contact-section{
+.contact-section {
     gap: 10px;
     margin: 0 !important;
     width: 100%;
 }
-.contact-info{
-    background-color: rgba(255, 255, 255, .7);
+.contact-info {
+    background-color: rgba(255, 255, 255, 0.7);
     margin: 0 !important;
     width: 100%;
+    //height: 100%;
     border-radius: 0 4px 4px 0;
-    height: min-content;
+    //height: min-content;
     align-items: flex-start !important;
 }
 
-.contact-info > .section  .section{
+.contact-info > .section .section {
     margin: 0 !important;
 }
 .contact-info > .section {
@@ -146,19 +149,43 @@
     white-space: nowrap;
 }
 
-.contact-section > div{
+.contact-section > div {
     width: 50%;
     padding: 10px;
 }
 
-.contact-info .contact-link, .social-button p, .contact-info a{
+.contact-info .contact-link,
+.social-button p,
+.contact-info a {
     text-decoration: none;
-    background: linear-gradient(to right, rgba(100, 200, 200, 0), rgba(100, 200, 200, 0)), linear-gradient(to right, #ffc939, #ffc939);
+    background: linear-gradient(to right, rgba(100, 200, 200, 0), rgba(100, 200, 200, 0)),
+        linear-gradient(to right, #ffc939, #ffc939);
     background-size: 100% 0.1em, 0 0.1em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
-    transition: background-size .4s;
+    transition: background-size 0.4s;
 }
-.contact-info .contact-link:hover, .social-button:hover p{
+.contact-info .contact-link:hover,
+.social-button:hover p {
     background-size: 0 0.1em, 100% 0.1em;
+}
+
+@media only screen and (max-width: 768px) {
+    .contact-section {
+        flex-direction: column-reverse !important;
+    }
+    .contact-modal {
+        max-height: 90vh;
+    }
+    .contact-section div {
+        width: calc(100% - 20px);
+        height: 50%;
+        max-height: 50vh;
+    }
+    .contact-section h1{
+        margin: 0;
+    }
+    .contact-text{
+        flex-direction: row !important;
+    }
 }
